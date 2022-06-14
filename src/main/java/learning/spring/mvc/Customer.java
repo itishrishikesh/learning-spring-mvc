@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import learning.spring.mvc.validation.CourseCode;
+
 public class Customer {
 	private String firstName;
 	
@@ -18,6 +20,17 @@ public class Customer {
 	@Max(value=10, message="must less than or equal to 10")
 	private Integer freePasses;
 	
+	@CourseCode(value="TOPS", message="Must start with TOPS")
+	private String courseCode;
+	
+	
+	
+	public String getCourseCode() {
+		return courseCode;
+	}
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
+	}
 	@Pattern(regexp = "^[0-9]{5}(-[0-9]{4})?$", message = "Invalid Postal Code")
 	private String postalCode;
 	
